@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-###CERINTA 1
+### CERINTA 1
 # Citirea datelor din fisierul csv
 df = pd.read_csv('train.csv')
 
@@ -61,6 +61,26 @@ axs[2].set_title('Procentul pasagerilor pe sex')
 axs[2].set_xticks([0, 1])
 axs[2].set_xticklabels(['Barbati', 'Femei'])
 
+# Creeaza graficul
 plt.tight_layout()
-plt.savefig('graph.png')
+plt.savefig(f'Cerinta2/graph.png')
+
+
+### CERINTA 3
+
+# List of numeric columns in the Titanic dataset
+numeric_cols = ['Age', 'Fare', 'SibSp', 'Parch']
+
+# Generate a histogram for each numeric column
+for col in numeric_cols:
+    df[col].hist(bins=30)
+    plt.title(f'Histogram for {col}')
+    plt.xlabel(col)
+    plt.ylabel('Frequency')
+    plt.savefig(f'Cerinta3/{col}_histogram.png')
+    plt.clf()
+
+### CERINTA 4
+
+missing_proportion = missing_values / len(df)
 
