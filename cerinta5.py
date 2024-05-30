@@ -21,4 +21,4 @@ plt.ylabel('Number of Passengers')
 plt.title('Number of Passengers in Each Age Category')
 
 # Save the plot to a file
-plt.savefig('age_categories.png')
+plt.savefig('Cerinta5/age_categories.png')
