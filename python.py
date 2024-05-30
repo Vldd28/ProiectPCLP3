@@ -82,5 +82,6 @@ for col in numeric_cols:
 
 ### CERINTA 4
 
+
 missing_proportion = missing_values / len(df)
 
