@@ -3,40 +3,37 @@ import matplotlib.pyplot as plt
 
 df = pd.read_csv('train.csv')
 
+# percentage of people who survived and who did not survive
 survived = df['Survived'].value_counts(normalize=True) * 100
-print(f'Procentul persoanelor care au supravietuit si care nu au supravietuit: \n{survived}')
+print(f'Percentage of people who survived and who did not survive: \n{survived}')
 
-# Procentul pasagerilor pentru fiecare tip de clasa
+# percentage of passengers for each class type
 pclass = df['Pclass'].value_counts(normalize=True) * 100
-print(f'Procentul pasagerilor pentru fiecare tip de clasa: \n{pclass}')
+print(f'Percentage of passengers for each class type: \n{pclass}')
 
-# Procentul barbatilor si procentul femeilor
 sex = df['Sex'].value_counts(normalize=True) * 100
-print(f'Procentul barbatilor si femeilor: \n{sex}')
+print(f'Percentage of men and women: \n{sex}')
 
-# Crearea unui grafic pentru prezentarea acestor rezultate
+# creating a plot to present these results
 fig, axs = plt.subplots(3, 1, figsize=(10, 15))
 
-# Grafic pentru supravietuire
+# plot for survival
 axs[0].bar(survived.index, survived.values, color=['red', 'green'])
-axs[0].set_title('Procentul de supravietuire')
+axs[0].set_title('Survival Percentage')
 axs[0].set_xticks([0, 1])
-axs[0].set_xticklabels(['Nu', 'Da'])
+axs[0].set_xticklabels(['No', 'Yes'])
 
-# Grafic pentru clasa
+# plot for class
 axs[1].bar(pclass.index, pclass.values, color=['blue', 'orange', 'green'])
-axs[1].set_title('Procentul pasagerilor pe clase')
+axs[1].set_title('Passenger Percentage by Class')
 axs[1].set_xticks([1, 2, 3])
-axs[1].set_xticklabels(['Clasa 1', 'Clasa 2', 'Clasa 3'])
+axs[1].set_xticklabels(['Class 1', 'Class 2', 'Class 3'])
 
-# Grafic pentru sex
+# sex plot
 axs[2].bar(sex.index, sex.values, color=['blue', 'pink'])
-axs[2].set_title('Procentul pasagerilor pe sex')
+axs[2].set_title('Passenger Percentage by Sex')
 axs[2].set_xticks([0, 1])
-axs[2].set_xticklabels(['Barbati', 'Femei'])
+axs[2].set_xticklabels(['Men', 'Women'])
 
-# Creeaza graficul
 plt.tight_layout()
-plt.savefig(f'Cerinta2/graph.png')
-
-
+plt.savefig(f'Task2/graph.png')
